@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Listing</title>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg" alt="Logo" class="logo">
+          <h1>DocConnect</h1>
+        </div>
+        <div class="navbar-search">
+          <div class="search-box">
+            <span class="material-icons">search</span>
+            <input type="text" id="searchInput" placeholder="Search doctors, specialties, clinics...">
+          </div>
+        </div>
+        <div class="navbar-actions">
+          <button class="nav-button">
+            <span class="material-icons">notifications</span>
+          </button>
+          <button class="nav-button">
+            <span class="material-icons">account_circle</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="root">
+      <div class="app-container">
+        <!-- Loading and Error States -->
+        <div id="loadingSpinner" class="loading-spinner">
+          <div class="spinner"></div>
+        </div>
+        <div id="errorAlert" class="error-alert" style="display: none;">
+          Failed to load doctors data. Showing mock data instead.
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+          <!-- Filters Section -->
+          <div class="filters-section">
+            <div class="filter-card">
+              <div class="filter-header">
+                <span class="material-icons">filter_list</span>
+                <h3>Filters</h3>
+              </div>
+
+              <!-- Sort Section -->
+              <div class="filter-group">
+                <div class="filter-title">
+                  <span class="material-icons">sort</span>
+                  <h4>Sort by</h4>
+                </div>
+                <div class="radio-group">
+                  <label class="custom-radio">
+                    <input type="radio" name="sortBy" value="fees">
+                    <span class="radio-label">Price: Low-High</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="sortBy" value="experience">
+                    <span class="radio-label">Experience: Most Experience first</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Mode of Consultation -->
+              <div class="filter-group">
+                <div class="filter-title">
+                  <span class="material-icons">video_camera_front</span>
+                  <h4>Mode of consultation</h4>
+                </div>
+                <div class="radio-group">
+                  <label class="custom-radio">
+                    <input type="radio" name="consultationType" value="Video Consult">
+                    <span class="radio-label">Video Consultation</span>
+                  </label>
+                  <label class="custom-radio">
+                    <input type="radio" name="consultationType" value="In Clinic">
+                    <span class="radio-label">In-clinic Consultation</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Specialties -->
+              <div class="filter-group">
+                <div class="filter-title">
+                  <span class="material-icons">local_hospital</span>
+                  <h4>Specialities</h4>
+                </div>
+                <div class="checkbox-group" id="specialtiesGroup">
+                  <!-- Specialties will be added here dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor List -->
+          <div class="doctors-section" id="doctorsList">
+            <!-- Doctors will be added here dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
